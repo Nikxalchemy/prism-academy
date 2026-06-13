@@ -2,242 +2,377 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="hhwC3TLd2QhGptCvVkvM8WNDgA2XvxVFers6T48rlvI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Science Academy | JEE, NEET, CET & Boards</title>
+    <title>Prism Science Academy | IIT-JEE, NEET, CET & Boards</title>
     <style>
         :root {
-            --light-blue: #ADD8E6;    /* Base light blue for elements */
-            --medium-blue: #6495ED;   /* Slightly deeper blue for variation */
-            --royal-blue: #4169E1;    /* Accent royal blue from the logo */
-            --dark-navy: #000080;     /* Strong navy blue for headers and footer */
-            --slate: #2F4F4F;         /* Dark grey-blue for text */
-            --background: #F0F8FF;    /* Very light background */
+            --brand-dark: #0f1c3f;    /* Dark royal navy from your logo */
+            --brand-main: #3b71ca;    /* Dynamic mid-blue from your logo */
+            --brand-light: #70b5f5;   /* Crisp sky blue from your logo */
+            --bg-clean: #f4f7fc;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            color: var(--slate);
-            background-color: var(--background);
-            line-height: 1.6;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-clean);
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
+        /* --- NAVIGATION --- */
         header {
-            background-color: var(--dark-navy);
-            color: white;
-            padding: 20px;
+            background: rgba(15, 28, 63, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .header-left {
+        .logo-area {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
 
-        header img {
-            max-height: 60px; /* Limit logo height */
-            margin-right: 20px;
+        .logo-area img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            text-transform: uppercase;
+        .logo-area h1 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
         }
 
         nav a {
-            color: white;
-            margin: 0 15px;
+            color: #cbd5e1;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--light-blue);
+            color: var(--brand-light);
         }
 
+        /* --- HERO SECTION --- */
         .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, var(--royal-blue), var(--dark-navy));
+            padding-top: 140px;
+            padding-bottom: 100px;
+            background: radial-gradient(circle at top right, #1e3a8a, var(--brand-dark));
             color: white;
+            text-align: center;
+            position: relative;
         }
 
         .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, var(--brand-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInDown 1s ease forwards;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            color: #93c5fd;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            animation: fadeInUp 1s ease cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        .btn {
-            background: white;
-            color: var(--dark-navy);
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--light-blue);
+        .cta-btn {
+            background: linear-gradient(135deg, var(--brand-main), var(--brand-light));
             color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(59, 113, 202, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
         }
 
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(59, 113, 202, 0.6);
+        }
+
+        /* --- CONTAINER & ANIMATIONS --- */
         .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 60px 20px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
         .section-title {
             text-align: center;
-            color: var(--dark-navy);
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-weight: 800;
+            color: var(--brand-dark);
+            margin-bottom: 50px;
+            position: relative;
         }
 
+        /* Reveal on Scroll effect matching download.jpg blueprint */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- VISUAL INTERACTIVE CARDS (Game Store Layout Style) --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            border-top: 5px solid var(--light-blue);
-            transition: transform 0.3s ease;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            text-align: left;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, var(--brand-main), var(--brand-light));
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--royal-blue);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(15, 28, 63, 0.12);
         }
 
-        .contact-info {
-            background-color: var(--medium-blue);
-            color: white;
-            padding: 40px 20px;
+        .card h3 {
+            font-size: 1.6rem;
+            color: var(--brand-dark);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* --- ABOUT BRIEF --- */
+        .about-box {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .contact-info h3 {
+        .about-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        /* --- PREMIUM INFO PANELS --- */
+        .contact-card {
+            background: var(--brand-dark);
             color: white;
-            font-size: 2rem;
-            margin-bottom: 20px;
+            border-radius: 32px;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .contact-info p {
-            margin: 10px 0;
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-block h4 {
+            color: var(--brand-light);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-block p {
             font-size: 1.1rem;
+            color: #e2e8f0;
+            line-height: 1.5;
         }
 
+        /* --- FOOTER --- */
         footer {
-            background: var(--dark-navy);
-            color: white;
+            background: #0b132b;
+            color: #94a3b8;
             text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 30px;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            header img {
-                margin-bottom: 10px;
-            }
-
-            header h1 {
-                margin-top: 10px;
-            }
-
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+            .hero h2 { font-size: 2.3rem; }
+            nav { display: none; }
+            .contact-card { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- STICKY HEADER -->
     <header>
-        <div class="header-left">
-            <!-- class LOGO -->
-            <img src="prism_classes_logo.png" alt="Prism Science Academy Logo">
-            <h1>Prism Science Academy</h1>
+        <div class="logo-area">
+            <!-- Looks for logo.png inside your GitHub repo root folder -->
+            <img src="logo.png" alt="Prism Science Academy Logo" onerror="this.style.display='none'">
+            <h1>PRISM</h1>
         </div>
         <nav>
             <a href="#home">Home</a>
-            <a href="#courses">Courses</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#courses">Programs</a>
+            <a href="#about">Philosophy</a>
+            <a href="#contact">Find Us</a>
         </nav>
     </header>
 
+    <!-- MAIN HERO VIEW -->
     <section class="hero" id="home">
-        <h2>Shifting Potential into Performance</h2>
-        <p>Premium Coaching for 11th-12th Science, IIT-JEE, NEET, & MHT-CET</p>
-        <a href="#contact" class="btn">Enquire / Book Demo Class</a>
+        <div class="container">
+            <h2>Shifting Potential into Performance</h2>
+            <p>Empowering 11th & 12th Science students to pioneer careers through targeted IIT-JEE, NEET, MHT-CET, and comprehensive Board configurations.</p>
+            <a href="#contact" class="cta-btn">Enquire / Book Demo Class</a>
+        </div>
     </section>
 
-    <div class="container" id="courses">
-        <h2 class="section-title">Our Specialized Programs</h2>
+    <!-- COURSES DISPLAY (Supercell Card-style Transitions) -->
+    <section class="container reveal" id="courses">
+        <h2 class="section-title">Specialized Programs</h2>
         <div class="grid">
             <div class="card">
-                <h3>IIT-JEE Prep</h3>
-                <p>Rigorous training for Main & Advanced with strategic problem-solving approaches.</p>
+                <h3>IIT-JEE Main & Advanced</h3>
+                <p>Rigorous micro-conceptual training frameworks targeting precise logical problem-solving development for India's premium engineering entrance.</p>
             </div>
             <div class="card">
-                <h3>NEET Prep</h3>
-                <p>In-depth NCERT coverage and speed-building biology/physics modules.</p>
+                <h3>NEET Achievers</h3>
+                <p>Intensive NCERT alignment strategies mapped directly with specialized analytical biology, physics shortcuts, and high-frequency evaluation drills.</p>
             </div>
             <div class="card">
                 <h3>MHT-CET & Boards</h3>
-                <p>Perfect synchronization between state board syllabus and competitive speed engineering tests.</p>
+                <p>Optimized dual-synchronized balance ensuring premier placement performance across State Board assessments alongside competitive regional speed metrics.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container" id="about">
-        <h2 class="section-title">Why Prism Science Academy?</h2>
-        <p>At *Prism Science Academy*, we view a prism not just as glass, but as a tool that takes a single beam of raw potential and disperses it into a brilliant spectrum of success. Our faculty and small batch sizes ensure the individual attention needed for conquering demanding academic goals.</p>
-    </div>
-
-    <div class="container" id="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-info">
-            <h3>We're Here to Guide You</h3>
-            <p>📞 Contact us today: 9702702836 / 8080079090 / 9819200232</p>
-            <p>📍 Visit us: 1/236/3247, Ganesh Marg, Tagore Nagar 1, Opposite to BMC School, Near Malvankar Hospital,Vikhroli East, Mumbai - 400083</p>
-            <p>📧 Email: prismsciencevikhroli@gmail.com</p>
+    <!-- CORE MISSION STATEMENT -->
+    <section class="container reveal" id="about">
+        <h2 class="section-title">The Prism Philosophy</h2>
+        <div class="about-box">
+            <p>At Prism Science Academy, we view a prism not simply as architectural glass, but as an essential transformational mechanism. We accept an incoming beam of raw student potential and carefully refract it into a brilliant, structured spectrum of scientific achievement and academic excellence.</p>
         </div>
-    </div>
+    </section>
 
-    <footer id="contact-footer">
-        <p>© 2026 Prism Science Academy. Empowering Next-Gen Scientists & Engineers.</p>
+    <!-- CONTACT PANEL CONTAINER -->
+    <section class="container reveal" id="contact">
+        <div class="contact-card">
+            <div class="info-block">
+                <h4>📞 Connect Immediately</h4>
+                <p>9702702836</p>
+                <p>8080079090</p>
+                <p>9819200232</p>
+            </div>
+            <div class="info-block">
+                <h4>📍 Visit Our Base</h4>
+                <p>1/236/3247, Ganesh Marg,<br>Tagore Nagar 1,<br>Opposite to BMC School,<br>Near Malvankar Hospital,<br>Vikhroli East, Mumbai - 400083</p>
+            </div>
+            <div class="info-block">
+                <h4>📧 Electronic Inquiries</h4>
+                <p>prismsciencevikhroli@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGAL MATRICES -->
+    <footer>
+        <p>&copy; 2026 Prism Science Academy. Engineered for absolute academic transparency.</p>
     </footer>
+
+    <!-- INTERACTIVE VIEWPORT TRACKER (Scroll Animations Script) -->
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        function checkScroll() {
+            const triggerBottom = window.innerHeight * 0.85;
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < triggerBottom) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        // Initial execution pass on page rendering stage
+        checkScroll();
+    </script>
 
 </body>
 </html>
