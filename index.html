@@ -6,42 +6,203 @@
     <title>Prism Science Academy | JEE, NEET, CET & Boards</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --text: #334155;
-            --light: #f8fafc;
+            --light-blue: #ADD8E6;    /* Base light blue for elements */
+            --medium-blue: #6495ED;   /* Slightly deeper blue for variation */
+            --royal-blue: #4169E1;    /* Accent royal blue from the logo */
+            --dark-navy: #000080;     /* Strong navy blue for headers and footer */
+            --slate: #2F4F4F;         /* Dark grey-blue for text */
+            --background: #F0F8FF;    /* Very light background */
         }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: var(--text); background-color: var(--light); }
-        header { background: var(--primary); color: white; padding: 20px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .hero { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #1e3a8a, #0f172a); color: white; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; font-weight: bold;}
-        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1-fraction)); gap: 20px; margin-top: 30px; }
-        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
-        footer { background: var(--primary); color: white; text-align: center; padding: 20px; position: relative; bottom: 0; width: 100%; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            color: var(--slate);
+            background-color: var(--background);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-navy);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            max-height: 60px; /* Limit logo height */
+            margin-right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--light-blue);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--royal-blue), var(--dark-navy));
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background: white;
+            color: var(--dark-navy);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--light-blue);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-navy);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid var(--light-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--royal-blue);
+        }
+
+        .contact-info {
+            background-color: var(--medium-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: var(--dark-navy);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header img {
+                margin-bottom: 10px;
+            }
+
+            header h1 {
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h2>Prism Science Academy</h2>
+        <div class="header-left">
+            <!-- Place your logo here: image_2.png or a URL -->
+            <img src="[ADD YOUR LOGO IMAGE URL HERE]" alt="Prism Science Academy Logo">
+            <h1>Prism Science Academy</h1>
+        </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#courses">Courses</a>
+            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="hero" id="home">
-        <h1>Shifting Potential into Performance</h1>
+        <h2>Shifting Potential into Performance</h2>
         <p>Premium Coaching for 11th-12th Science, IIT-JEE, NEET, & MHT-CET</p>
         <a href="#contact" class="btn">Enquire / Book Demo Class</a>
     </section>
 
     <div class="container" id="courses">
-        <h2 style="text-align: center;">Our Specialized Programs</h2>
+        <h2 class="section-title">Our Specialized Programs</h2>
         <div class="grid">
             <div class="card">
                 <h3>IIT-JEE Prep</h3>
@@ -58,9 +219,23 @@
         </div>
     </div>
 
-    <footer id="contact">
+    <div class="container" id="about">
+        <h2 class="section-title">Why Prism Science Academy?</h2>
+        <p>At *Prism Science Academy*, we view a prism not just as glass, but as a tool that takes a single beam of raw potential and disperses it into a brilliant spectrum of success. Our faculty and small batch sizes ensure the individual attention needed for conquering demanding academic goals.</p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-info">
+            <h3>We're Here to Guide You</h3>
+            <p>📞 Contact us today: 9702702836 / 8080079090 / 9819200232</p>
+            <p>📍 Visit us: 1/236/3247, Ganesh Marg, Tagore Nagar 1, Opposite to BMC School, Near Malvankar Hospital,Vikhroli East, Mumbai - 400083</p>
+            <p>📧 Email: prismsciencevikhroli@gmail.com</p>
+        </div>
+    </div>
+
+    <footer id="contact-footer">
         <p>© 2026 Prism Science Academy. Empowering Next-Gen Scientists & Engineers.</p>
-        <p>Contact us: info@prismacademy.com | +91 XXXXXXXXXX</p>
     </footer>
 
 </body>
